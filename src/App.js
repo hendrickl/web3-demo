@@ -84,14 +84,14 @@ function App() {
   return (
     <>
       <Center>
-        <Heading mb={10}>Web3 demo 1</Heading>
+        <Heading mb={10}>Web3</Heading>
       </Center>
       <VStack>
         <Text>Web3 : {state.isWeb3 ? "injected" : "not found"}</Text>
         <Text>
           MetaMask status : {state.isEnabled ? "connected" : "disconnected"}
         </Text>
-        {state.isEnabled && <Text>account : {state.account}</Text>}
+        {state.isEnabled && <Text>Account : {state.account}</Text>}
         <Text>Balance : {state.balance} ETH</Text>
         {state.network && (
           <>
