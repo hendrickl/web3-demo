@@ -74,9 +74,9 @@ const dappReducer = (state, action) => {
 };
 
 const initialDappState = {
-  donateValue: "0.0000",
+  donateValue: 0.0,
   connecting: false,
-  myAddr: "0x57D401B8502bC5CBBaAfD2564236dE4571165051",
+  myAddr: "0x1f4fdad26cfe9636adb5595a3814a25e892a9326",
 };
 
 function Main() {
@@ -88,10 +88,10 @@ function Main() {
       dappDispatch({ type: "SET_connecting", connecting: true });
   };
 
-  const handleOnChange = () => {
+  const handleOnChange = (currentDonateValue) => {
     dappDispatch({
       type: "SET_donateValue",
-      donateValue: dappState.donateValue,
+      donateValue: currentDonateValue,
     });
   };
 
@@ -182,7 +182,7 @@ function Main() {
   return (
     <>
       <VStack>
-        <Heading>Web3 demo 2</Heading>
+        <Heading>Web3 demo</Heading>
         <Heading mb={10} size="lg">
           Connection, transaction and smart contracts
         </Heading>
