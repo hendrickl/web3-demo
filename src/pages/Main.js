@@ -202,7 +202,7 @@ function Main() {
               <Text>Connected to : {web3State.network.name}</Text>
               <Text>Account : {web3State.account}</Text>
 
-              <Text>Balance : {web3State.balance}</Text>
+              <Text>Balance : {web3State.balance} ETH</Text>
 
               {web3State.network && (
                 <>
