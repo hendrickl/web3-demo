@@ -184,7 +184,7 @@ function Main() {
       <VStack>
         <Heading>Web3 demo</Heading>
         <Heading mb={10} size="lg">
-          Connection, transaction and smart contracts
+          Connection - Transaction - Smart Contracts
         </Heading>
 
         {!web3State.isWeb3 && <Text>Please install MetaMask</Text>}
