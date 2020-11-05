@@ -74,7 +74,7 @@ const dappReducer = (state, action) => {
 };
 
 const initialDappState = {
-  donateValue: 0.0,
+  donateValue: "0.0000",
   connecting: false,
   myAddr: "0x1f4fdad26cfe9636adb5595a3814a25e892a9326",
 };
