@@ -95,6 +95,13 @@ function Main() {
     });
   };
 
+  const handleOnClick = async () => {
+    await sendTransaction(web3State.signer, web3State.provider, {
+      to: dappState.myAddr,
+      value: ethers.utils.parseEther(dappState.donateValue),
+    });
+  };
+
   // Check if Web3 is injected
   useEffect(() => {
     if (typeof window.ethereum !== "undefined") {
@@ -229,14 +236,7 @@ function Main() {
               <NumberDecrementStepper />
             </NumberInputStepper>
           </NumberInput>
-          <Button
-            onClick={async () =>
-              await sendTransaction(web3State.signer, web3State.provider, {
-                to: dappState.myAddr,
-                value: ethers.utils.parseEther(dappState.donateValue),
-              })
-            }
-          >
+          <Button onClick={handleOnClick}>
             SEND {dappState.donateValue} ETH
           </Button>
         </HStack>
