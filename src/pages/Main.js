@@ -88,6 +88,13 @@ function Main() {
       dappDispatch({ type: "SET_connecting", connecting: true });
   };
 
+  const handleOnChange = () => {
+    dappDispatch({
+      type: "SET_donateValue",
+      donateValue: dappState.donateValue,
+    });
+  };
+
   // Check if Web3 is injected
   useEffect(() => {
     if (typeof window.ethereum !== "undefined") {
@@ -214,12 +221,7 @@ function Main() {
             step={0.02}
             min={0}
             max={web3State.balance}
-            onChange={(currentDonateValue) => {
-              dappDispatch({
-                type: "SET_donateValue",
-                donateValue: currentDonateValue,
-              });
-            }}
+            onChange={handleOnChange}
           >
             <NumberInputField />
             <NumberInputStepper>
@@ -235,7 +237,7 @@ function Main() {
               })
             }
           >
-            Donate {dappState.donateValue} ether
+            SEND {dappState.donateValue} ETH
           </Button>
         </HStack>
         {!web3State.isEnabled && (
