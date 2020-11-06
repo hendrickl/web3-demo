@@ -64,8 +64,8 @@ const initialWeb3State = {
 
 const dappReducer = (state, action) => {
   switch (action.type) {
-    case "SET_connecting":
-      return { ...state, connecting: action.connecting };
+    case "SET_isConnecting":
+      return { ...state, isConnecting: action.isConnecting };
     case "SET_donateValue":
       return { ...state, donateValue: action.donateValue };
     default:
@@ -85,7 +85,7 @@ function Main() {
 
   const handleOnConnect = () => {
     if (!web3State.isEnabled)
-      dappDispatch({ type: "SET_connecting", connecting: true });
+      dappDispatch({ type: "SET_isConnecting", isConnecting: true });
   };
 
   const handleOnChange = (currentDonateValue) => {
@@ -141,14 +141,14 @@ function Main() {
         });
         web3Dispatch({ type: "SET_isEnabled", isEnabled: false });
       } finally {
-        dappDispatch({ type: "SET_connecting", connecting: false });
+        dappDispatch({ type: "SET_isConnecting", isConnecting: false });
       }
     };
 
-    if (web3State.isWeb3 && dappState.connecting && !web3State.isEnabled) {
+    if (web3State.isWeb3 && dappState.isConnecting && !web3State.isEnabled) {
       connect2MetaMask();
     }
-  }, [web3State.isWeb3, dappState.connecting, web3State.isEnabled]);
+  }, [web3State.isWeb3, dappState.isConnecting, web3State.isEnabled]);
 
   // Connect to provider
   useEffect(() => {
